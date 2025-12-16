@@ -175,7 +175,7 @@ export default function MenuPage() {
 
   return (
     <div className="min-h-screen pt-24">
-      <MenuCategories />
+      <MenuCategories showButton={false} />
       <div className="container-custom max-w-6xl section-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
