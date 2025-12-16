@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Users, Briefcase, PartyPopper } from 'lucide-react'
+import Image from 'next/image'
 
 export default function CateringPage() {
   const services = [
@@ -11,6 +12,7 @@ export default function CateringPage() {
       description: 'Fresh meals delivered for team lunches, meetings, and corporate events.',
       quantities: ['10-20 people', '20-50 people', '50+ people'],
       note: 'Daily lunch orders available with advance notice',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/office_cattering.png',
     },
     {
       icon: <PartyPopper className="text-accent" size={40} />,
@@ -18,6 +20,7 @@ export default function CateringPage() {
       description: 'Birthday parties, anniversaries, and celebrations—we handle the food, you enjoy the moment.',
       quantities: ['Small gatherings (15-30)', 'Medium events (30-60)', 'Large parties (60+)'],
       note: 'Customizable menu options available',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/parties_evemts.png',
     },
     {
       icon: <Users className="text-accent" size={40} />,
@@ -25,6 +28,7 @@ export default function CateringPage() {
       description: 'Our signature biryanis in bulk quantities for any occasion.',
       quantities: ['5kg minimum', '10kg', '20kg+'],
       note: '24-hour advance notice required',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/biryani_bulk.png',
     },
   ]
 
@@ -36,7 +40,7 @@ export default function CateringPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-6xl font-heading text-accent text-center mb-4">
+          <h1 className="text-4xl md:text-6xl font-heading text-center mb-4" style={{ color: '#228B22' }}>
             Catering Services
           </h1>
           <div className="gold-divider max-w-xs mx-auto mb-8"></div>
@@ -55,26 +59,39 @@ export default function CateringPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-primary/30 border border-accent/20 rounded-lg p-8 hover:border-accent/50 transition-all"
+                className="relative border border-accent/20 rounded-lg overflow-hidden hover:border-accent/50 transition-all"
               >
-                <div className="flex items-start space-x-6">
-                  <div className="flex-shrink-0 mt-1">{service.icon}</div>
-                  <div className="flex-1">
-                    <h2 className="text-2xl md:text-3xl font-heading text-accent mb-3">
-                      {service.title}
-                    </h2>
-                    <p className="text-text-light/80 mb-4">{service.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {service.quantities.map((qty, i) => (
-                        <span
-                          key={i}
-                          className="text-sm bg-accent/10 text-accent px-3 py-1 rounded border border-accent/30"
-                        >
-                          {qty}
-                        </span>
-                      ))}
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 p-8">
+                  <div className="flex items-start space-x-6">
+                    <div className="flex-shrink-0 mt-1">{service.icon}</div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl md:text-3xl font-heading text-accent mb-3">
+                        {service.title}
+                      </h2>
+                      <p className="text-text-light/80 mb-4">{service.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {service.quantities.map((qty, i) => (
+                          <span
+                            key={i}
+                            className="text-sm bg-accent/10 text-accent px-3 py-1 rounded border border-accent/30"
+                          >
+                            {qty}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-sm text-text-light/60 italic">{service.note}</p>
                     </div>
-                    <p className="text-sm text-text-light/60 italic">{service.note}</p>
                   </div>
                 </div>
               </motion.div>

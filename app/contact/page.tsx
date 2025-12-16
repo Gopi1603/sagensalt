@@ -12,10 +12,28 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-6xl font-heading text-accent text-center mb-4">
+          <h1 className="text-4xl md:text-6xl font-heading text-center mb-4" style={{ color: '#228B22' }}>
             Visit Us
           </h1>
-          <div className="gold-divider max-w-xs mx-auto mb-12"></div>
+          <div className="gold-divider max-w-xs mx-auto mb-8"></div>
+
+          {/* Trust Strip - Moved to top */}
+          <div className="mb-12 pb-8 border-b border-accent/20 text-center">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-text-light/70">
+              <div className="flex items-center space-x-2">
+                <Award className="text-accent" size={20} />
+                <span>FSSAI: 13625003000281</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <ChefHat className="text-accent" size={20} />
+                <span>Fresh Preparation Daily</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Shield className="text-accent" size={20} />
+                <span>Quality Assured</span>
+              </div>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Map */}
@@ -123,24 +141,6 @@ export default function ContactPage() {
               >
                 Order Online
               </a>
-            </div>
-          </div>
-
-          {/* Trust Strip */}
-          <div className="mt-12 pt-8 border-t border-accent/20 text-center">
-            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-text-light/70">
-              <div className="flex items-center space-x-2">
-                <Award className="text-accent" size={20} />
-                <span>FSSAI: 13625003000281</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <ChefHat className="text-accent" size={20} />
-                <span>Fresh Preparation Daily</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="text-accent" size={20} />
-                <span>Quality Assured</span>
-              </div>
             </div>
           </div>
         </motion.div>

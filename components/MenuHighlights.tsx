@@ -40,7 +40,7 @@ export default function MenuHighlights() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-5xl font-heading text-accent text-center mb-4">
+          <h2 className="text-3xl md:text-5xl font-heading text-center mb-4" style={{ color: '#228B22' }}>
             Our Menu
           </h2>
           <div className="gold-divider max-w-xs mx-auto mb-12"></div>

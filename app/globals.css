@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+@font-face {
+  font-family: 'TAN PEARL';
+  src: url('/tan-pearl.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-primary: #f7f5f2;
   --color-accent: #1a1a1a;
@@ -22,14 +36,18 @@ html {
 body {
   background-color: var(--color-primary);
   color: var(--color-text-light);
-  font-family: var(--font-body);
+  font-family: var(--font-caveat), var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: 'TAN PEARL', var(--font-heading);
   color: var(--color-accent);
+}
+
+p, span, li, a {
+  font-family: var(--font-akaya), var(--font-body);
 }
 
 @layer utilities {
@@ -47,6 +65,15 @@ h1, h2, h3, h4, h5, h6 {
 
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -66,4 +93,241 @@ h1, h2, h3, h4, h5, h6 {
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+.magic-border-google {
+  position: relative;
+  background: var(--color-primary);
+}
+
+.magic-border-google::before {
+  content: "";
+  width: 103%;
+  height: 103%;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(
+    var(--rotate),
+    #4285F4,
+    #EA4335,
+    #FBBC05,
+    #34A853
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1.5%;
+  left: -1.5%;
+  animation: spin 3s linear infinite;
+}
+
+.magic-border-zomato {
+  position: relative;
+  background: var(--color-primary);
+}
+
+.magic-border-zomato::before {
+  content: "";
+  width: 103%;
+  height: 103%;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(
+    var(--rotate),
+    #E23744,
+    #FF6B7A,
+    #E23744,
+    #C4132F
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1.5%;
+  left: -1.5%;
+  animation: spin 3s linear infinite;
+}
+
+.magic-border-swiggy {
+  position: relative;
+  background: var(--color-primary);
+}
+
+.magic-border-swiggy::before {
+  content: "";
+  width: 103%;
+  height: 103%;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(
+    var(--rotate),
+    #FC8019,
+    #FFB366,
+    #FC8019,
+    #E07010
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1.5%;
+  left: -1.5%;
+  animation: spin 3s linear infinite;
+}
+
+/* Founder Card Styles */
+.founder-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.founder-card {
+  height: 380px;
+  width: 300px;
+  background: black;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 70px 63px -60px #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background 0.8s;
+}
+
+.founder-card-border {
+  height: 370px;
+  width: 290px;
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.founder-card:hover .founder-card-border {
+  border: 1px solid white;
+}
+
+.founder-card-swathi {
+  background: url('https://ik.imagekit.io/gopichakradhar/sagensalt/swathi.jpg') center center no-repeat;
+  background-size: 300px;
+}
+
+.founder-card-swathi:hover {
+  background: url('https://ik.imagekit.io/gopichakradhar/sagensalt/swathi.jpg') left center no-repeat;
+  background-size: 600px;
+}
+
+.founder-card-bhanu {
+  background: url('https://ik.imagekit.io/gopichakradhar/sagensalt/bhanu.jpg') center center no-repeat;
+  background-size: 300px;
+}
+
+.founder-card-bhanu:hover {
+  background: url('https://ik.imagekit.io/gopichakradhar/sagensalt/bhanu.jpg') left center no-repeat;
+  background-size: 600px;
+}
+
+.founder-card h2 {
+  font-family: 'TAN PEARL', serif;
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+  opacity: 0;
+  transition: opacity 1s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.founder-card:hover h2 {
+  opacity: 1;
+}
+
+.founder-card p {
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 1s;
+  margin-top: 0.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Founders Image Hover Effect */
+.founders-image-card {
+  height: 400px;
+  width: 100%;
+  max-width: 400px;
+  background: black;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 70px 63px -60px #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.8s ease;
+  cursor: pointer;
+}
+
+.founders-image-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://ik.imagekit.io/gopichakradhar/sagensalt/swathi_bhanu.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.8s ease;
+  z-index: 1;
+}
+
+.founders-image-card:hover::before {
+  background-position: center center;
+  background-size: 150%;
+  transform: scale(1.05);
+}
+
+.founders-image-border {
+  height: 390px;
+  width: calc(100% - 10px);
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.founders-image-card:hover .founders-image-border {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.founders-overlay-text {
+  font-family: 'TAN PEARL', serif;
+  color: #FFD700;
+  font-size: 1.8rem;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1s;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  font-weight: bold;
+}
+
+.founders-image-card:hover .founders-overlay-text {
+  opacity: 1;
 }

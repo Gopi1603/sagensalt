@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Wifi, Armchair, Clock } from 'lucide-react'
+import Image from 'next/image'
 
 export default function DigitalNomad() {
   const features = [
@@ -31,7 +32,7 @@ export default function DigitalNomad() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-heading text-center mb-16"
-          style={{ color: '#6b8e23' }}
+          style={{ color: '#228B22' }}
         >
           Digital Nomad Friendly
         </motion.h2>
@@ -43,15 +44,15 @@ export default function DigitalNomad() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
+            className="relative w-full aspect-[2/1] rounded-3xl overflow-hidden shadow-2xl"
           >
-            {/* Placeholder - replace with actual workspace image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#a8d5ba] to-[#7ba88d] flex items-center justify-center">
-              <div className="text-center text-white/30">
-                <p className="text-3xl font-heading mb-2">[WORKSPACE IMAGE]</p>
-                <p className="text-sm">Coffee, laptop, and workspace photo</p>
-              </div>
-            </div>
+            <Image
+              src="https://ik.imagekit.io/gopichakradhar/sagensalt/digital_sagensalt.jpg"
+              alt="Digital Nomad Workspace"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </motion.div>
 
           {/* Right Content */}
@@ -62,8 +63,8 @@ export default function DigitalNomad() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <p className="text-xl md:text-2xl text-primary/80 leading-relaxed mb-8">
-              Working from Goa? Sage n Salt provides the perfect environment for digital nomads with:
+            <p className="text-xl md:text-2xl text-accent leading-relaxed mb-8">
+              Working from Khammam? Sage n Salt provides the perfect environment for digital nomads with:
             </p>
 
             <div className="space-y-6">

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 
 export default function Gallery() {
-  const images = Array.from({ length: 6 }, (_, i) => ({
+  const images = Array.from({ length: 3 }, (_, i) => ({
     id: i + 1,
     alt: `Gallery image ${i + 1}`,
   }))
@@ -17,12 +17,12 @@ export default function Gallery() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-5xl font-heading text-accent text-center mb-4">
+          <h2 className="text-3xl md:text-5xl font-heading text-center mb-4" style={{ color: '#228B22' }}>
             Gallery
           </h2>
           <div className="gold-divider max-w-xs mx-auto mb-12"></div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {images.map((image, index) => (
               <motion.div
                 key={image.id}

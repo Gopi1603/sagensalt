@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface MenuCategory {
   title: string
@@ -17,27 +18,27 @@ export default function MenuCategories({ showButton = true }: MenuCategoriesProp
   const categories: MenuCategory[] = [
     {
       title: 'Veg Starters',
-      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/menu-veg.jpg',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/veg_starters.png',
       description: 'Crispy, flavorful vegetarian appetizers'
     },
     {
       title: 'Non-Veg Starters',
-      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/menu-nonveg.jpg',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/non_veg_starters.png',
       description: 'Succulent chicken, fish, and seafood'
     },
     {
       title: 'Biryani',
-      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/menu-biryani.jpg',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/biryanis.png',
       description: 'Aromatic rice with spices and meat'
     },
     {
       title: 'Chinese',
-      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/menu-chinese.jpg',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/chinesse.png',
       description: 'Indo-Chinese fusion favorites'
     },
     {
       title: 'Juices & Beverages',
-      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/menu-beverages.jpg',
+      image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/juices_beaverges.png',
       description: 'Fresh juices and refreshing drinks'
     }
   ]
@@ -45,20 +46,38 @@ export default function MenuCategories({ showButton = true }: MenuCategoriesProp
   return (
     <section className="section-padding bg-primary">
       <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-heading text-accent mb-4">
+        {/* Header with title left and button right */}
+        <div className="flex items-center justify-between mb-8 md:mb-12">
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-heading"
+            style={{ color: '#228B22' }}
+          >
             Our Menu
-          </h2>
-          <div className="w-32 h-1 bg-accent mx-auto"></div>
-        </motion.div>
+          </motion.h2>
+          
+          {showButton && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Link
+                href="/menu"
+                className="inline-block px-6 md:px-10 py-3 md:py-4 text-base md:text-lg font-semibold rounded-xl bg-accent text-primary hover:bg-accent/90 transition-all duration-300 hover:scale-105 shadow-xl"
+              >
+                View Menu
+              </Link>
+            </motion.div>
+          )}
+        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+        {/* Desktop Grid / Mobile Carousel */}
+        <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -72,13 +91,16 @@ export default function MenuCategories({ showButton = true }: MenuCategoriesProp
               <Link href="/menu" className="w-full">
                 {/* Circular Image Container */}
                 <div className="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl mb-4 bg-primary/10">
-                  {/* Placeholder gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
-                    <span className="text-primary/30 text-4xl">🍽️</span>
-                  </div>
+                  <Image
+                    src={category.image}
+                    alt={category.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 20vw"
+                  />
                   
                   {/* Border effect */}
-                  <div className="absolute inset-0 rounded-full border-4 border-accent/20 group-hover:border-accent/40 transition-colors"></div>
+                  <div className="absolute inset-0 rounded-full border-4 border-accent/20 group-hover:border-accent/40 transition-colors z-10"></div>
                 </div>
 
                 {/* Category Title */}
@@ -95,23 +117,42 @@ export default function MenuCategories({ showButton = true }: MenuCategoriesProp
           ))}
         </div>
 
-        {/* View Full Menu Button */}
-        {showButton && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="text-center mt-12"
-          >
-            <Link
-              href="/menu"
-              className="inline-block px-10 py-4 text-lg font-semibold rounded-xl bg-accent text-primary hover:bg-accent/90 transition-all duration-300 hover:scale-105 shadow-xl"
-            >
-              View Full Menu
-            </Link>
-          </motion.div>
-        )}
+        {/* Mobile Carousel with horizontal scroll */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide">
+          <div className="flex gap-4 pb-4">
+            {categories.map((category, index) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="flex-shrink-0 w-40 group cursor-pointer"
+              >
+                <Link href="/menu" className="block">
+                  {/* Circular Image Container */}
+                  <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-2xl mb-3 bg-primary/10">
+                    <Image
+                      src={category.image}
+                      alt={category.title}
+                      fill
+                      className="object-cover"
+                      sizes="160px"
+                    />
+                    
+                    {/* Border effect */}
+                    <div className="absolute inset-0 rounded-full border-4 border-accent/20 group-hover:border-accent/40 transition-colors z-10"></div>
+                  </div>
+
+                  {/* Category Title */}
+                  <h3 className="text-base font-heading text-accent text-center group-hover:text-accent/80 transition-colors">
+                    {category.title}
+                  </h3>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

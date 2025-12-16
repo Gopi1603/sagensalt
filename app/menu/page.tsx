@@ -1,10 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Flame, Leaf, Circle, BookOpen } from 'lucide-react'
+import { Flame, Leaf, Circle, ChevronDown, ChevronUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { trackPageView, trackOrderClick, trackCallClick } from '@/lib/analytics'
-import SimplePDFViewer from '@/components/SimplePDFViewer'
+import { trackPageView } from '@/lib/analytics'
 import MenuCategories from '@/components/MenuCategories'
 
 interface MenuItem {
@@ -124,54 +123,96 @@ function VegIndicator({ type }: { type: 'veg' | 'nonveg' }) {
   )
 }
 
-function MenuSection({ title, items }: { title: string; items: MenuItem[] }) {
+function MenuSection({ title, items, filterType, isOpen, onToggle }: { 
+  title: string; 
+  items: MenuItem[]; 
+  filterType: 'all' | 'veg' | 'nonveg';
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  const filteredItems = filterType === 'all' 
+    ? items 
+    : items.filter(item => item.type === filterType);
+  
+  if (filteredItems.length === 0) return null;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="mb-12"
+      className="mb-6"
     >
-      <h2 className="text-3xl md:text-4xl font-heading text-accent mb-6">{title}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {items.map((item, index) => (
-          <div key={index} className="bg-primary/30 border border-accent/20 rounded-lg p-4 hover:border-accent/50 transition-all">
-            <div className="flex items-start justify-between mb-2">
-              <div className="flex items-center space-x-3">
-                <VegIndicator type={item.type} />
-                <h3 className="text-lg font-semibold text-text-light">{item.name}</h3>
+      {/* Category Header */}
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between bg-accent/10 hover:bg-accent/20 border border-accent/30 rounded-lg p-4 mb-4 transition-colors"
+      >
+        <h2 className="text-2xl md:text-3xl font-heading text-accent">{title}</h2>
+        {isOpen ? (
+          <ChevronUp className="text-accent" size={28} />
+        ) : (
+          <ChevronDown className="text-accent" size={28} />
+        )}
+      </button>
+
+      {/* Category Items */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
+          {filteredItems.map((item, index) => (
+            <div key={index} className="bg-primary/30 border border-accent/20 rounded-lg p-4 hover:border-accent/50 transition-all">
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center space-x-3">
+                  <VegIndicator type={item.type} />
+                  <h3 className="text-lg font-semibold text-text-light">{item.name}</h3>
+                </div>
+                <SpiceLevel level={item.spice} />
               </div>
-              <SpiceLevel level={item.spice} />
+              <div className="flex items-center space-x-3 ml-8">
+                {item.portion && (
+                  <span className="text-xs text-text-light/60 bg-primary/50 px-2 py-1 rounded">
+                    {item.portion}
+                  </span>
+                )}
+                {item.badge && (
+                  <span className="text-xs text-accent bg-accent/10 px-2 py-1 rounded border border-accent/30">
+                    {item.badge}
+                  </span>
+                )}
+              </div>
             </div>
-            <div className="flex items-center space-x-3 ml-8">
-              {item.portion && (
-                <span className="text-xs text-text-light/60 bg-primary/50 px-2 py-1 rounded">
-                  {item.portion}
-                </span>
-              )}
-              {item.badge && (
-                <span className="text-xs text-accent bg-accent/10 px-2 py-1 rounded border border-accent/30">
-                  {item.badge}
-                </span>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </motion.div>
+      )}
     </motion.div>
   )
 }
 
 export default function MenuPage() {
-  const [showPDFViewer, setShowPDFViewer] = useState(false)
+  const [filterType, setFilterType] = useState<'all' | 'veg' | 'nonveg'>('all');
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
+    vegStarters: true,
+    nonVegStarters: true,
+    biryani: true,
+    chinese: true,
+    juices: true,
+  });
 
   useEffect(() => {
     trackPageView('/menu')
   }, [])
 
-  const handleViewPDFMenu = () => {
-    setShowPDFViewer(true)
-  }
+  const toggleSection = (section: string) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
 
   return (
     <div className="min-h-screen pt-24">
@@ -182,24 +223,54 @@ export default function MenuPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-6xl font-heading text-accent text-center mb-4">
+          <h1 className="text-4xl md:text-6xl font-heading text-center mb-4" style={{ color: '#228B22' }}>
             Our Menu
           </h1>
           <div className="gold-divider max-w-xs mx-auto mb-8"></div>
 
-          {/* PDF Menu Button */}
-          <div className="text-center mb-8">
-            <button
-              onClick={handleViewPDFMenu}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-accent hover:bg-accent/90 text-primary rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <BookOpen size={24} />
-              <span>View Full Menu (Flipbook)</span>
-            </button>
-            <p className="text-text-light/60 text-sm mt-3">Interactive page-turning menu with all items and prices</p>
+          {/* Veg/Non-Veg Toggle */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex bg-primary/30 border border-accent/20 rounded-lg p-1">
+              <button
+                onClick={() => setFilterType('all')}
+                className={`px-6 py-2 rounded-md font-semibold transition-all ${
+                  filterType === 'all' 
+                    ? 'bg-accent text-primary' 
+                    : 'text-accent hover:bg-accent/10'
+                }`}
+              >
+                All
+              </button>
+              <button
+                onClick={() => setFilterType('veg')}
+                className={`px-6 py-2 rounded-md font-semibold transition-all flex items-center gap-2 ${
+                  filterType === 'veg' 
+                    ? 'bg-green-500 text-white' 
+                    : 'text-accent hover:bg-accent/10'
+                }`}
+              >
+                <div className="w-4 h-4 border-2 border-current flex items-center justify-center">
+                  <Circle size={8} className="fill-current" />
+                </div>
+                Veg
+              </button>
+              <button
+                onClick={() => setFilterType('nonveg')}
+                className={`px-6 py-2 rounded-md font-semibold transition-all flex items-center gap-2 ${
+                  filterType === 'nonveg' 
+                    ? 'bg-red-500 text-white' 
+                    : 'text-accent hover:bg-accent/10'
+                }`}
+              >
+                <div className="w-4 h-4 border-2 border-current flex items-center justify-center">
+                  <Circle size={8} className="fill-current" />
+                </div>
+                Non-Veg
+              </button>
+            </div>
           </div>
           
-          <div className="bg-accent/10 border border-accent/30 rounded-lg p-6 mb-12 text-center">
+          <div className="bg-accent/10 border border-accent/30 rounded-lg p-6 mb-8 text-center">
             <p className="text-text-light/80 mb-3">
               Prices available on <a href="https://zoma.to/r/22394794" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Zomato</a> and <a href="https://www.swiggy.com/menu/1286711?source=sharing" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Swiggy</a>, or ask in-store.
             </p>
@@ -223,21 +294,43 @@ export default function MenuPage() {
             </div>
           </div>
 
-          <MenuSection title="Veg Starters" items={menuData.vegStarters} />
-          <MenuSection title="Non-Veg Starters" items={menuData.nonVegStarters} />
-          <MenuSection title="Biryani" items={menuData.biryani} />
-          <MenuSection title="Chinese" items={menuData.chinese} />
-          <MenuSection title="Juices & Beverages" items={menuData.juices} />
+          <MenuSection 
+            title="Veg Starters" 
+            items={menuData.vegStarters} 
+            filterType={filterType}
+            isOpen={openSections.vegStarters}
+            onToggle={() => toggleSection('vegStarters')}
+          />
+          <MenuSection 
+            title="Non-Veg Starters" 
+            items={menuData.nonVegStarters} 
+            filterType={filterType}
+            isOpen={openSections.nonVegStarters}
+            onToggle={() => toggleSection('nonVegStarters')}
+          />
+          <MenuSection 
+            title="Biryani" 
+            items={menuData.biryani} 
+            filterType={filterType}
+            isOpen={openSections.biryani}
+            onToggle={() => toggleSection('biryani')}
+          />
+          <MenuSection 
+            title="Chinese" 
+            items={menuData.chinese} 
+            filterType={filterType}
+            isOpen={openSections.chinese}
+            onToggle={() => toggleSection('chinese')}
+          />
+          <MenuSection 
+            title="Juices & Beverages" 
+            items={menuData.juices} 
+            filterType={filterType}
+            isOpen={openSections.juices}
+            onToggle={() => toggleSection('juices')}
+          />
         </motion.div>
       </div>
-
-      {/* PDF Viewer Modal */}
-      {showPDFViewer && (
-        <SimplePDFViewer
-          pdfUrl="/menu.pdf"
-          onClose={() => setShowPDFViewer(false)}
-        />
-      )}
     </div>
   )
 }

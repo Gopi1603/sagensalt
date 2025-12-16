@@ -2,114 +2,141 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20">
-      {/* Background Image */}
+    <section className="relative w-full h-screen flex items-center overflow-hidden">
+      {/* Background Image - Right Side */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
+        {/* Dark overlay on left for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-10"></div>
         <Image
-          src="https://ik.imagekit.io/gopichakradhar/sagensalt/herobg.jfif"
-          alt="Hero Background"
+          src="https://ik.imagekit.io/gopichakradhar/sagensalt/herobg_sagensalt_khammam.jpg"
+          alt="Sage N Salt Restaurant"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
+          quality={100}
         />
       </div>
 
-      {/* Content */}
-      <div className="container-custom w-full relative z-20 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto"
-        >
-          {/* Brand Name */}
-          <h1 className="text-7xl md:text-8xl lg:text-9xl font-serif mb-6 text-primary leading-tight drop-shadow-2xl font-light tracking-wide">
-            Sage N Salt
-          </h1>
-          
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl mb-10 text-primary/90 font-light italic drop-shadow-lg">
-            Let's spice it up
-          </p>
-          
-          {/* Social Icons */}
-          <div className="flex items-center justify-center gap-4 mb-10">
-            {/* Zomato */}
-            <motion.a
-              href="https://zoma.to/r/22394794"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              whileHover={{ scale: 1.15, rotate: 5 }}
-              className="relative w-12 h-12 md:w-14 md:h-14 bg-white/95 rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden"
-            >
-              <Image
-                src="https://ik.imagekit.io/gopichakradhar/sagensalt/zomotologo.jfif"
-                alt="Zomato"
-                fill
-                className="object-cover"
-              />
-            </motion.a>
-
-            {/* Swiggy */}
-            <motion.a
-              href="https://www.swiggy.com/menu/1286711?source=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              whileHover={{ scale: 1.15, rotate: -5 }}
-              className="relative w-12 h-12 md:w-14 md:h-14 bg-white/95 rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden"
-            >
-              <Image
-                src="https://ik.imagekit.io/gopichakradhar/sagensalt/swiggylogo.jfif"
-                alt="Swiggy"
-                fill
-                className="object-cover"
-              />
-            </motion.a>
-
-            {/* Instagram */}
-            <motion.a
-              href="https://www.instagram.com/sagensalt"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              whileHover={{ scale: 1.15, rotate: 5 }}
-              className="relative w-12 h-12 md:w-14 md:h-14 bg-white/95 rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden"
-            >
-              <Image
-                src="https://ik.imagekit.io/gopichakradhar/sagensalt/insatgramlogo.jfif"
-                alt="Instagram"
-                fill
-                className="object-cover"
-              />
-            </motion.a>
-          </div>
-          
-          {/* CTA Button */}
-          <motion.a
-            href="https://zoma.to/r/22394794"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            whileHover={{ scale: 1.08 }}
-            className="inline-block px-10 py-4 text-lg font-medium rounded-full bg-primary text-accent shadow-2xl hover:shadow-[0_0_40px_rgba(247,245,242,0.5)] transition-all border-2 border-primary/20"
+      {/* Content Container */}
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-20 h-full flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full items-center">
+          {/* LEFT SIDE - Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white space-y-6 md:space-y-8 max-w-2xl"
           >
-            Order Now
-          </motion.a>
-        </motion.div>
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight uppercase"
+              style={{ fontFamily: "'TAN PEARL', serif" }}
+            >
+              Flavors
+              <br />
+              <span className="text-amber-400">Sage N Salt</span>
+            </motion.h1>
+
+            {/* Sub-heading / Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed font-light max-w-xl"
+              style={{ fontFamily: 'var(--font-akaya)' }}
+            >
+              From crispy veg starters to aromatic biryanis and refreshing juices,
+              Sage N Salt brings you bold flavors, fresh ingredients, and unforgettable taste.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4"
+            >
+              <Link
+                href="/menu"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-full bg-amber-500 hover:bg-amber-600 text-black shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:scale-105"
+              >
+                View Menu
+              </Link>
+              <a
+                href="https://zoma.to/r/22394794"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-full border-2 border-white hover:bg-white hover:text-black text-white transition-all duration-300 hover:scale-105"
+              >
+                Order Now
+              </a>
+            </motion.div>
+
+            {/* Social Icons */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="flex items-center gap-4 pt-6"
+            >
+              <span className="text-sm text-gray-400 uppercase tracking-wider">Follow us:</span>
+              <div className="flex gap-3">
+                <a
+                  href="https://zoma.to/r/22394794"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110 border border-white/20"
+                >
+                  <Image
+                    src="https://ik.imagekit.io/gopichakradhar/sagensalt/zomotologo.jfif"
+                    alt="Zomato"
+                    width={24}
+                    height={24}
+                    className="rounded"
+                  />
+                </a>
+                <a
+                  href="https://www.swiggy.com/menu/1286711?source=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110 border border-white/20"
+                >
+                  <Image
+                    src="https://ik.imagekit.io/gopichakradhar/sagensalt/swiggylogo.jfif"
+                    alt="Swiggy"
+                    width={24}
+                    height={24}
+                    className="rounded"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/sagensalt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all hover:scale-110 border border-white/20"
+                >
+                  <Image
+                    src="https://ik.imagekit.io/gopichakradhar/sagensalt/insatgramlogo.jfif"
+                    alt="Instagram"
+                    width={24}
+                    height={24}
+                    className="rounded"
+                  />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT SIDE - Image space (handled by background) */}
+          <div className="hidden lg:block"></div>
+        </div>
       </div>
     </section>
   )

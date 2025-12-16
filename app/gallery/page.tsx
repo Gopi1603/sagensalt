@@ -27,7 +27,7 @@ export default function GalleryPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-6xl font-heading text-accent text-center mb-4">
+          <h1 className="text-4xl md:text-6xl font-heading text-center mb-4" style={{ color: '#228B22' }}>
             Gallery
           </h1>
           <div className="gold-divider max-w-xs mx-auto mb-12"></div>
@@ -36,7 +36,7 @@ export default function GalleryPage() {
           <section className="mb-16">
             <div className="flex items-center justify-center space-x-3 mb-8">
               <UtensilsCrossed className="text-accent" size={28} />
-              <h2 className="text-3xl md:text-4xl font-heading text-accent">Our Food</h2>
+              <h2 className="text-3xl md:text-4xl font-heading" style={{ color: '#228B22' }}>Our Food</h2>
             </div>
             <p className="text-center text-text-light/70 mb-8 max-w-2xl mx-auto">
               Every dish is prepared fresh to order. What you see is what we serve—no filters, just authentic flavors.

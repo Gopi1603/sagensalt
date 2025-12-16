@@ -31,12 +31,12 @@ export default function SignatureDishes() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-5xl font-heading text-accent text-center mb-4">
+          <h2 className="text-3xl md:text-5xl font-heading text-center mb-4" style={{ color: '#228B22' }}>
             Signature Creations
           </h2>
           <div className="gold-divider max-w-xs mx-auto mb-12"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {dishes.map((dish, index) => (
               <motion.div
                 key={index}
@@ -44,7 +44,7 @@ export default function SignatureDishes() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-primary/30 border border-accent/20 rounded-lg p-6 hover:border-accent/50 transition-all duration-300"
+                className="bg-primary/30 border border-accent/20 rounded-lg p-4 md:p-6 hover:border-accent/50 transition-all duration-300"
               >
                 <div className="aspect-square bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
                   <span className="text-accent/50 text-sm">[IMAGE]</span>

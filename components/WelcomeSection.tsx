@@ -2,30 +2,22 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function WelcomeSection() {
   return (
-    <section className="section-padding relative overflow-hidden bg-gradient-to-br from-[#f8f6f0] via-[#ffffff] to-[#f5f3ee]">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute -right-20 -top-20 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-        <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Decorative sage leaves - top right */}
-      <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-        <svg viewBox="0 0 200 200" className="w-full h-full" fill="currentColor" style={{ color: '#6b8e23' }}>
-          <ellipse cx="100" cy="100" rx="40" ry="80" transform="rotate(45 100 100)" />
-          <ellipse cx="120" cy="80" rx="30" ry="60" transform="rotate(20 120 80)" />
-        </svg>
-      </div>
-
-      {/* Decorative sage leaves - bottom left */}
-      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-10">
-        <svg viewBox="0 0 200 200" className="w-full h-full" fill="currentColor" style={{ color: '#6b8e23' }}>
-          <ellipse cx="100" cy="100" rx="40" ry="80" transform="rotate(-30 100 100)" />
-          <ellipse cx="80" cy="120" rx="30" ry="60" transform="rotate(-60 80 120)" />
-        </svg>
+    <section className="section-padding relative overflow-hidden">
+      {/* Pattern Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://ik.imagekit.io/gopichakradhar/sagensalt/sagensalt_pattern.jpg"
+          alt="Sage N Salt Pattern"
+          fill
+          className="object-cover"
+          quality={100}
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/40"></div>
       </div>
 
       <div className="container-custom relative z-10">
@@ -39,7 +31,7 @@ export default function WelcomeSection() {
           {/* Title */}
           <h2 
             className="text-4xl md:text-5xl lg:text-6xl font-heading mb-8 leading-tight"
-            style={{ color: '#6b8e23' }}
+            style={{ color: '#228B22' }}
           >
             Welcome to Sage n Salt
           </h2>
