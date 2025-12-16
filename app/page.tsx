@@ -1,0 +1,38 @@
+import { Metadata } from 'next'
+import Hero from '@/components/Hero'
+import OrderCTA from '@/components/OrderCTA'
+import SignatureDishes from '@/components/SignatureDishes'
+import MenuHighlights from '@/components/MenuHighlights'
+import Gallery from '@/components/Gallery'
+import Reviews from '@/components/Reviews'
+import Location from '@/components/Location'
+import InstagramFeed from '@/components/InstagramFeed'
+import { generatePageMetadata, generateRestaurantSchema } from '@/lib/seo'
+
+export const metadata: Metadata = generatePageMetadata({
+  title: 'Home - Modern Artisan Indian Cuisine',
+  description: 'Sage N Salt offers authentic Indian cuisine with modern artisan preparations. Order biryani, starters, and more. Fresh preparation daily. FSSAI certified.',
+  canonical: '/',
+  keywords: 'Indian restaurant, biryani near me, Indian food, best restaurant, authentic Indian cuisine, fresh biryani, [ENTER_CITY] restaurant, fine dining [ENTER_CITY]',
+})
+
+export default function Home() {
+  const restaurantSchema = generateRestaurantSchema()
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema) }}
+      />
+      <Hero />
+      <OrderCTA />
+      <SignatureDishes />
+      <MenuHighlights />
+      <Gallery />
+      <Reviews />
+      <InstagramFeed />
+      <Location />
+    </>
+  )
+}

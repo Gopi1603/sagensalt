@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0d3b2f;
+  --color-accent: #d4af37;
+  --color-text-light: #f5f3ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, #d4af37 0%, #f5d782 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-primary font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-accent text-accent font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary;
+  }
+
+  .section-padding {
+    @apply px-4 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
