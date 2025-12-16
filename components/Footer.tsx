@@ -77,7 +77,7 @@ export default function Footer() {
             <span className="text-accent/60">✓ Quality Assured</span>
           </div>
           <div>
-            <p>© {new Date().getFullYear()} Sage N Salt</p>
+            <p suppressHydrationWarning>© {new Date().getFullYear()} Sage N Salt</p>
           </div>
         </div>
       </div>
