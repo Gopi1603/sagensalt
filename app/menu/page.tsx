@@ -208,6 +208,10 @@ export default function MenuPage() {
           <MenuSection title="Chinese" items={menuData.chinese} />
           <MenuSection title="Juices & Beverages" items={menuData.juices} />
 
+          {/* Sticky CTA Bar */}
+          <div className="sticky bottom-4 mt-12 bg-primary border-2 border-accent/30 rounded-lg p-6 shadow-2xl">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
                 href="https://zoma.to/r/22394794" 
                 target="_blank" 
                 rel="noopener noreferrer" 
@@ -229,11 +233,7 @@ export default function MenuPage() {
                 href="tel:6300591870" 
                 className="btn-secondary"
                 onClick={() => trackCallClick('menu-page')}
-              
-              <a href="https://www.swiggy.com/menu/1286711?source=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary">
-                Order on Swiggy
-              </a>
-              <a href="tel:6300591870" className="btn-secondary">
+              >
                 Call to Order
               </a>
             </div>
