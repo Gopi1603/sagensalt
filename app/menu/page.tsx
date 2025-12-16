@@ -5,6 +5,7 @@ import { Flame, Leaf, Circle, BookOpen } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { trackPageView, trackOrderClick, trackCallClick } from '@/lib/analytics'
 import SimplePDFViewer from '@/components/SimplePDFViewer'
+import MenuCategories from '@/components/MenuCategories'
 
 interface MenuItem {
   name: string
@@ -173,8 +174,9 @@ export default function MenuPage() {
   }
 
   return (
-    <div className="min-h-screen pt-24 section-padding">
-      <div className="container-custom max-w-6xl">
+    <div className="min-h-screen pt-24">
+      <MenuCategories />
+      <div className="container-custom max-w-6xl section-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

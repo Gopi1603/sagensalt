@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Script from 'next/script'
 import Hero from '@/components/Hero'
+import MenuCategories from '@/components/MenuCategories'
 import DigitalNomad from '@/components/DigitalNomad'
 import WelcomeSection from '@/components/WelcomeSection'
 import OrderCTA from '@/components/OrderCTA'
@@ -31,6 +32,7 @@ export default function Home() {
         strategy="afterInteractive"
       />
       <Hero />
+      <MenuCategories />
       <DigitalNomad />
       <WelcomeSection />
       <OrderCTA />
