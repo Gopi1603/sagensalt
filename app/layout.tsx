@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import BottomNav from '@/components/BottomNav'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 
@@ -38,9 +39,10 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen pb-16 md:pb-0">
           {children}
         </main>
+        <BottomNav />
         <WhatsAppFloat />
         <Footer />
       </body>

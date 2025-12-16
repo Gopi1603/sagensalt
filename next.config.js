@@ -15,12 +15,8 @@ const nextConfig = {
       },
     ],
   },
-  // Webpack configuration for PDF.js support
-  webpack: (config) => {
-    config.resolve.alias.canvas = false
-    config.resolve.alias.encoding = false
-    return config
-  },
+  // Empty turbopack config to silence Next.js 16 warning
+  turbopack: {},
 }
 
 module.exports = nextConfig

@@ -45,9 +45,9 @@ export default function WelcomeSection() {
           </h2>
 
           {/* Description */}
-          <div className="space-y-6 text-lg md:text-xl text-primary/80 leading-relaxed mb-10">
+          <div className="space-y-6 text-lg md:text-xl text-accent/80 leading-relaxed mb-10">
             <p>
-              Nestled in the coastal paradise of <span className="font-semibold" style={{ color: '#d4af37' }}>Rajbag Beach in South Goa</span>, Sage n Salt is a culinary haven where an island bakery meets inspired cuisine. Our establishment brings together the warmth of a traditional bakery, the casual elegance of a café, and the satisfying experience of a full-service restaurant.
+              Nestled in the coastal paradise of <span className="font-semibold text-accent">Rajbag Beach in South Goa</span>, Sage n Salt is a culinary haven where an island bakery meets inspired cuisine. Our establishment brings together the warmth of a traditional bakery, the casual elegance of a café, and the satisfying experience of a full-service restaurant.
             </p>
             
             <p>
@@ -64,11 +64,7 @@ export default function WelcomeSection() {
           >
             <Link
               href="/about"
-              className="inline-block px-10 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg"
-              style={{ 
-                backgroundColor: '#d4af37',
-                color: '#0d3b2f'
-              }}
+              className="inline-block px-10 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg bg-accent text-primary"
             >
               Read more
             </Link>

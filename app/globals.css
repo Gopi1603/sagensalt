@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #1a1a1a;
-  --color-accent: #2c2c2c;
-  --color-text-light: #f7f5f2;
+  --color-primary: #f7f5f2;
+  --color-accent: #1a1a1a;
+  --color-text-light: #1a1a1a;
   --color-cloud-dancer: #f7f5f2;
 }
 
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(90deg, #2c2c2c 0%, #4a4a4a 50%, #2c2c2c 100%);
+    background: linear-gradient(90deg, #1a1a1a 0%, #4a4a4a 50%, #1a1a1a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .gold-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, #2c2c2c 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, #1a1a1a 50%, transparent 100%);
   }
 
   .animate-fade-in {
@@ -52,11 +52,11 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer components {
   .btn-primary {
-    @apply bg-text-light text-primary font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg border border-accent/20;
+    @apply bg-accent text-primary font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply border-2 border-text-light text-text-light font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-text-light hover:text-primary;
+    @apply border-2 border-accent text-accent font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-accent hover:text-primary;
   }
 
   .section-padding {
