@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Script from 'next/script'
 import Hero from '@/components/Hero'
 import OrderCTA from '@/components/OrderCTA'
 import SignatureDishes from '@/components/SignatureDishes'
@@ -21,9 +22,11 @@ export default function Home() {
 
   return (
     <>
-      <script
+      <Script
+        id="restaurant-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema) }}
+        strategy="afterInteractive"
       />
       <Hero />
       <OrderCTA />

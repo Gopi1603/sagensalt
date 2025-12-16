@@ -19,6 +19,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Sage N Salt - Modern Artisan Indian Cuisine',
   description: 'Premium Indian restaurant offering modern artisan cuisine in an elegant yet welcoming atmosphere.',
   keywords: 'Indian restaurant, fine dining, artisan cuisine, Sage N Salt',
