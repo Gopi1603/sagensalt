@@ -9,9 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0d3b2f',
-        accent: '#d4af37',
-        'text-light': '#f5f3ee',
+        primary: '#1a1a1a', // Deep charcoal for primary backgrounds
+        accent: '#2c2c2c', // Darker gray for accents/buttons
+        'text-light': '#f7f5f2', // Cloud Dancer (PANTONE 11-4201)
+        'cloud-dancer': '#f7f5f2', // Cloud Dancer white
       },
       fontFamily: {
         heading: ['var(--font-heading)', 'serif'],

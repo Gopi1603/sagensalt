@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Flame, Leaf, Circle } from 'lucide-react'
-import { useEffect } from 'react'
+import { Flame, Leaf, Circle, BookOpen } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { trackPageView, trackOrderClick, trackCallClick } from '@/lib/analytics'
+import SimplePDFViewer from '@/components/SimplePDFViewer'
 
 interface MenuItem {
   name: string
@@ -161,9 +162,15 @@ function MenuSection({ title, items }: { title: string; items: MenuItem[] }) {
 }
 
 export default function MenuPage() {
+  const [showPDFViewer, setShowPDFViewer] = useState(false)
+
   useEffect(() => {
     trackPageView('/menu')
   }, [])
+
+  const handleViewPDFMenu = () => {
+    setShowPDFViewer(true)
+  }
 
   return (
     <div className="min-h-screen pt-24 section-padding">
@@ -177,6 +184,18 @@ export default function MenuPage() {
             Our Menu
           </h1>
           <div className="gold-divider max-w-xs mx-auto mb-8"></div>
+
+          {/* PDF Menu Button */}
+          <div className="text-center mb-8">
+            <button
+              onClick={handleViewPDFMenu}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-accent hover:bg-accent/90 text-primary rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <BookOpen size={24} />
+              <span>View Full Menu (Flipbook)</span>
+            </button>
+            <p className="text-text-light/60 text-sm mt-3">Interactive page-turning menu with all items and prices</p>
+          </div>
           
           <div className="bg-accent/10 border border-accent/30 rounded-lg p-6 mb-12 text-center">
             <p className="text-text-light/80 mb-3">
@@ -240,6 +259,14 @@ export default function MenuPage() {
           </div>
         </motion.div>
       </div>
+
+      {/* PDF Viewer Modal */}
+      {showPDFViewer && (
+        <SimplePDFViewer
+          pdfUrl="/menu.pdf"
+          onClose={() => setShowPDFViewer(false)}
+        />
+      )}
     </div>
   )
 }

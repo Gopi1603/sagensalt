@@ -3,7 +3,6 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import VerticalIconBar from '@/components/VerticalIconBar'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 const playfair = Playfair_Display({
@@ -39,7 +38,6 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <Navbar />
-        <VerticalIconBar />
         <main className="min-h-screen">
           {children}
         </main>
