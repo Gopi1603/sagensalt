@@ -39,7 +39,7 @@ export default function GalleryPage() {
               <h2 className="text-3xl md:text-4xl font-heading" style={{ color: '#228B22' }}>Our Food</h2>
             </div>
             <p className="text-center text-text-light/70 mb-8 max-w-2xl mx-auto">
-              Every dish is prepared fresh to order. What you see is what we serve—no filters, just authentic flavors.
+              Every dish is prepared fresh to order. What you see is what we serve - no filters, just authentic flavors.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {foodImages.map((image, index) => (

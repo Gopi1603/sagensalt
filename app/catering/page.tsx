@@ -17,7 +17,7 @@ export default function CateringPage() {
     {
       icon: <PartyPopper className="text-accent" size={40} />,
       title: 'Parties & Events',
-      description: 'Birthday parties, anniversaries, and celebrations—we handle the food, you enjoy the moment.',
+      description: 'Birthday parties, anniversaries, and celebrations - we handle the food, you enjoy the moment.',
       quantities: ['Small gatherings (15-30)', 'Medium events (30-60)', 'Large parties (60+)'],
       note: 'Customizable menu options available',
       image: 'https://ik.imagekit.io/gopichakradhar/sagensalt/parties_evemts.png',
@@ -47,7 +47,7 @@ export default function CateringPage() {
 
           <div className="max-w-2xl mx-auto text-center mb-12">
             <p className="text-lg text-text-light/80">
-              Same quality, larger quantities. We prepare everything fresh for your event—just tell us how many people and when.
+              Same quality, larger quantities. We prepare everything fresh for your event - just tell us how many people and when.
             </p>
           </div>
 

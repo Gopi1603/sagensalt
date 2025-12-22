@@ -196,11 +196,11 @@ function MenuSection({ title, items, filterType, isOpen, onToggle }: {
 export default function MenuPage() {
   const [filterType, setFilterType] = useState<'all' | 'veg' | 'nonveg'>('all');
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-    vegStarters: true,
-    nonVegStarters: true,
-    biryani: true,
-    chinese: true,
-    juices: true,
+    vegStarters: false,
+    nonVegStarters: false,
+    biryani: false,
+    chinese: false,
+    juices: false,
   });
 
   useEffect(() => {

@@ -30,7 +30,7 @@ export default function AboutPage() {
                 Sage N Salt started with a simple goal: serve good food made the right way, every single time.
               </p>
               <p className="text-lg text-text-light/80 leading-relaxed mb-6" style={{ fontFamily: 'var(--font-caveat)' }}>
-                We focus on what matters—fresh ingredients, proper preparation, and consistent taste. No shortcuts. No compromises. Just food that keeps people coming back.
+                We focus on what matters - fresh ingredients, proper preparation, and consistent taste. No shortcuts. No compromises. Just food that keeps people coming back.
               </p>
               <p className="text-lg text-text-light/80 leading-relaxed" style={{ fontFamily: 'var(--font-caveat)' }}>
                 Our kitchen prepares each dish to order. Our recipes stay the same. Our standards don't change. That's how we've built a reputation in the community.
@@ -43,10 +43,10 @@ export default function AboutPage() {
             <div className="w-full md:w-1/2">
               <h3 className="text-3xl font-heading text-accent mb-4">Meet the Founders</h3>
               <p className="text-xl text-text-light/90 leading-relaxed mb-4" style={{ fontFamily: 'var(--font-caveat)' }}>
-                <span className="font-semibold text-accent">Swathi & Bhanu</span> — a married couple who turned their shared passion for authentic Indian cuisine into reality.
+                <span className="font-semibold text-accent">Swathi & Bhanu</span> - a married couple who turned their shared passion for authentic Indian cuisine into reality.
               </p>
               <p className="text-lg text-text-light/80 leading-relaxed mb-4" style={{ fontFamily: 'var(--font-caveat)' }}>
-                Sage N Salt is more than a restaurant—it's our dream project. What started as conversations over home-cooked meals grew into a commitment to serve the kind of food we'd want to eat ourselves.
+                Sage N Salt is more than a restaurant - it's our dream project. What started as conversations over home-cooked meals grew into a commitment to serve the kind of food we'd want to eat ourselves.
               </p>
               <p className="text-lg text-text-light/80 leading-relaxed" style={{ fontFamily: 'var(--font-caveat)' }}>
                 Together, we've built a place where quality isn't negotiable, where every dish reflects our values, and where guests become part of our extended family.
@@ -80,7 +80,7 @@ export default function AboutPage() {
               <Clock className="text-accent mx-auto mb-4" size={40} />
               <h3 className="text-xl font-heading text-accent mb-3">Consistency</h3>
               <p className="text-text-light/70 text-sm" style={{ fontFamily: 'var(--font-caveat)' }}>
-                Same recipes, same process, same taste—whether it's lunch or dinner, weekday or weekend.
+                Same recipes, same process, same taste - whether it's lunch or dinner, weekday or weekend.
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-accent mt-1">•</span>
-                <span>Clean kitchen and proper food handling—FSSAI certified (13625003000281)</span>
+                <span>Clean kitchen and proper food handling - FSSAI certified (13625003000281)</span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-accent mt-1">•</span>

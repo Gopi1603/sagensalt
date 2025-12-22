@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Star, ThumbsUp, MessageSquare, ExternalLink, QrCode, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { trackPageView } from '@/lib/analytics'
+import Image from 'next/image'
 
 export default function ReviewsPage() {
   const [currentReview, setCurrentReview] = useState(0)
@@ -209,6 +210,58 @@ export default function ReviewsPage() {
 
           {/* Leave a Review Section */}
           <div className="bg-accent/10 border border-accent/30 rounded-lg p-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <QrCode className="text-accent mb-4" size={48} />
+                <h3 className="text-2xl font-heading text-accent mb-3">
+                  Dining With Us?
+                </h3>
+                <p className="text-text-light/80 mb-4">
+                  Scan the QR code on your table to leave a quick review while your experience is fresh.
+                </p>
+                <div className="space-y-2 text-sm text-text-light/70">
+                  <p className="flex items-center">
+                    <span className="text-accent mr-2">•</span>
+                    Takes 30 seconds
+                  </p>
+                  <p className="flex items-center">
+                    <span className="text-accent mr-2">•</span>
+                    Direct link to review page
+                  </p>
+                  <p className="flex items-center">
+                    <span className="text-accent mr-2">•</span>
+                    Your feedback matters
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-accent/10 rounded-lg p-8 text-center">
+                <a
+                  href="https://www.google.com/search?sca_esv=88b16f0ad95c48d3&rlz=1C1ONGR_en-GBIN1183IN1183&cs=1&output=search&kgmid=/g/11mrqhcf37&q=Sage+N+Salt&shndl=30&shem=ptotplc,shrtsdl&source=sh/x/loc/uni/m1/1&kgs=e35ac0e1af14811a&utm_source=ptotplc,shrtsdl,sh/x/loc/uni/m1/1#lrd=0x3a34596c5a61113d:0x3d0a79ff744d8b7c,3,,,,"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:scale-105 transition-transform"
+                >
+                  <div className="bg-white p-4 rounded-lg inline-block mb-4">
+                    <div className="w-48 h-48 relative">
+                      <Image
+                        src="https://ik.imagekit.io/gopichakradhar/sagensalt/GOOGLE%20REVIEW.png"
+                        alt="QR Code - Leave a Review"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </a>
+                <p className="text-text-light/60 text-sm">
+                  Scan to leave a review
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Enjoyed Your Meal Section */}
+          <div className="bg-accent/10 border border-accent/30 rounded-lg p-8 mb-12">
             <div className="text-center mb-6">
               <ThumbsUp className="text-accent mx-auto mb-4" size={48} />
               <h2 className="text-2xl md:text-3xl font-heading text-accent mb-3">
@@ -242,44 +295,52 @@ export default function ReviewsPage() {
           </div>
 
           {/* In-Store QR Code Strategy */}
-          <div className="bg-primary/30 border border-accent/20 rounded-lg p-8">
+          <div className="bg-primary/30 border border-accent/20 rounded-lg p-8 mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <QrCode className="text-accent mb-4" size={48} />
                 <h3 className="text-2xl font-heading text-accent mb-3">
-                  Dining With Us?
+                  Order In Restaurant
                 </h3>
                 <p className="text-text-light/80 mb-4">
-                  Scan the QR code on your table to leave a quick review while your experience is fresh.
+                  Scan the QR code on your table to order directly through our POS system - Rechao POS Table Scanner.
                 </p>
                 <div className="space-y-2 text-sm text-text-light/70">
                   <p className="flex items-center">
                     <span className="text-accent mr-2">•</span>
-                    Takes 30 seconds
+                    Browse full menu
                   </p>
                   <p className="flex items-center">
                     <span className="text-accent mr-2">•</span>
-                    Direct link to review page
+                    Place orders instantly
                   </p>
                   <p className="flex items-center">
                     <span className="text-accent mr-2">•</span>
-                    Your feedback matters
+                    Quick and convenient
                   </p>
                 </div>
               </div>
 
               <div className="bg-accent/10 rounded-lg p-8 text-center">
-                <div className="bg-white p-4 rounded-lg inline-block mb-4">
-                  <div className="w-48 h-48 bg-primary/20 flex items-center justify-center">
-                    <span className="text-xs text-text-light/50">
-                      [QR CODE<br />PLACEHOLDER]<br /><br />
-                      Generate QR linking to:<br />
-                      Google Review URL
-                    </span>
+                <a
+                  href="https://sagensalt.inmyarea.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:scale-105 transition-transform"
+                >
+                  <div className="bg-white p-4 rounded-lg inline-block mb-4">
+                    <div className="w-48 h-48 relative">
+                      <Image
+                        src="https://ik.imagekit.io/gopichakradhar/sagensalt/qr.png"
+                        alt="QR Code - Order via POS"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
+                </a>
                 <p className="text-text-light/60 text-sm">
-                  Create QR code using qr-code-generator.com
+                  Scan to order via Rechao POS
                 </p>
               </div>
             </div>

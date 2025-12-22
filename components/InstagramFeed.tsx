@@ -2,13 +2,41 @@
 
 import { useEffect } from 'react'
 
+// Declare Instagram global
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void
+      }
+    }
+  }
+}
+
 export default function InstagramFeed() {
+  const instagramPosts = [
+    { url: 'https://www.instagram.com/p/DSIfj0rkt0a/', embed: 'https://www.instagram.com/p/DSIfj0rkt0a/embed' },
+    { url: 'https://www.instagram.com/p/DSXFrx_ibde/', embed: 'https://www.instagram.com/p/DSXFrx_ibde/embed' },
+    { url: 'https://www.instagram.com/p/DSMJ_jICZLh/', embed: 'https://www.instagram.com/p/DSMJ_jICZLh/embed' },
+  ]
+
   useEffect(() => {
     // Load Instagram embed script if needed
     const script = document.createElement('script')
     script.src = 'https://www.instagram.com/embed.js'
     script.async = true
     document.body.appendChild(script)
+
+    // Process embeds when script loads
+    const processEmbeds = () => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process()
+      }
+    }
+
+    script.onload = processEmbeds
+    // Also try to process if script already exists
+    setTimeout(processEmbeds, 100)
 
     return () => {
       if (script.parentNode) {
@@ -41,23 +69,32 @@ export default function InstagramFeed() {
         {/* Instagram Grid - Manual or Embedded */}
         <div className="bg-primary/30 border border-accent/20 rounded-lg p-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <a
+            {instagramPosts.map((post, i) => (
+              <div
                 key={i}
-                href="https://www.instagram.com/sage.nsalt"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-square bg-accent/10 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 flex items-center justify-center border border-accent/20"
+                className="bg-primary rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
               >
-                <span className="text-accent/50 text-sm">[INSTA POST {i + 1}]</span>
-              </a>
+                <blockquote
+                  className="instagram-media"
+                  data-instgrm-permalink={post.url}
+                  data-instgrm-version="14"
+                  style={{
+                    background: '#FFF',
+                    border: 0,
+                    borderRadius: '3px',
+                    boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
+                    margin: '1px',
+                    maxWidth: '540px',
+                    minWidth: '326px',
+                    padding: 0,
+                    width: 'calc(100% - 2px)',
+                  }}
+                />
+              </div>
             ))}
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-text-light/60 text-sm mb-4">
-              Replace with actual Instagram feed using Elfsight or similar widget
-            </p>
             <a
               href="https://www.instagram.com/sage.nsalt"
               target="_blank"
