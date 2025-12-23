@@ -43,6 +43,9 @@ export default function MenuCategories({ showButton = true }: MenuCategoriesProp
     }
   ]
 
+  // Duplicate categories for infinite scroll effect
+  const duplicatedCategories = [...categories, ...categories, ...categories]
+
   return (
     <section className="section-padding bg-primary">
       <div className="container-custom">
@@ -117,16 +120,25 @@ export default function MenuCategories({ showButton = true }: MenuCategoriesProp
           ))}
         </div>
 
-        {/* Mobile Carousel with horizontal scroll */}
-        <div className="md:hidden overflow-x-auto scrollbar-hide">
-          <div className="flex gap-4 pb-4">
-            {categories.map((category, index) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+        {/* Mobile Carousel with infinite scroll */}
+        <div className="md:hidden overflow-hidden relative">
+          <motion.div
+            className="flex gap-4"
+            animate={{
+              x: [0, -((categories.length * (160 + 16)))],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+          >
+            {duplicatedCategories.map((category, index) => (
+              <div
+                key={`${category.title}-${index}`}
                 className="flex-shrink-0 w-40 group cursor-pointer"
               >
                 <Link href="/menu" className="block">
@@ -149,9 +161,9 @@ export default function MenuCategories({ showButton = true }: MenuCategoriesProp
                     {category.title}
                   </h3>
                 </Link>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

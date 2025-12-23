@@ -45,13 +45,15 @@ export default function Gallery() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="aspect-square rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 group relative"
+                className={`aspect-square rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 group relative ${
+                  index === images.length - 1 && images.length % 2 !== 0 ? 'col-span-2 md:col-span-1' : ''
+                }`}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 768px) 50vw, 33vw"
+                  sizes={index === images.length - 1 && images.length % 2 !== 0 ? "(max-width: 768px) 100vw, 33vw" : "(max-width: 768px) 50vw, 33vw"}
                   className="object-cover"
                   quality={85}
                 />
