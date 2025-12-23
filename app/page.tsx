@@ -11,6 +11,7 @@ import Gallery from '@/components/Gallery'
 import Reviews from '@/components/Reviews'
 import Location from '@/components/Location'
 import InstagramFeed from '@/components/InstagramFeed'
+import FestivalTheme from '@/components/FestivalTheme'
 import { generatePageMetadata, generateRestaurantSchema } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
@@ -31,6 +32,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema) }}
         strategy="afterInteractive"
       />
+      <FestivalTheme />
       <Hero />
       <MenuCategories />
       <DigitalNomad />
