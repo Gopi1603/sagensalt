@@ -1,12 +1,27 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Gallery() {
-  const images = Array.from({ length: 3 }, (_, i) => ({
-    id: i + 1,
-    alt: `Gallery image ${i + 1}`,
-  }))
+  const images = [
+    {
+      id: 1,
+      src: 'https://ik.imagekit.io/gopichakradhar/sagensalt/digital_sagensalt.jpg?updatedAt=1765880111781',
+      alt: 'Sagen Salt Digital Workspace',
+    },
+    {
+      id: 2,
+      src: 'https://ik.imagekit.io/gopichakradhar/sagensalt/Gallery/1766483737796.jpg?updatedAt=1766484645594',
+      alt: 'Sagen Salt Gallery Image',
+    },
+    {
+      id: 3,
+      src: 'https://ik.imagekit.io/gopichakradhar/sagensalt/Gallery/1766483702132.jpg?updatedAt=1766484645553',
+      alt: 'Sagen Salt Cuisine',
+    },
+  ]
 
   return (
     <section id="gallery" className="section-padding">
@@ -30,12 +45,32 @@ export default function Gallery() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="aspect-square bg-accent/10 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 flex items-center justify-center border border-accent/20"
+                className="aspect-square rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 group relative"
               >
-                <span className="text-accent/50">[IMAGE {image.id}]</span>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover"
+                  quality={85}
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-8"
+          >
+            <Link href="/gallery" className="btn-secondary inline-block">
+              View Full Gallery
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
