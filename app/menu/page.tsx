@@ -15,87 +15,173 @@ interface MenuItem {
 }
 
 const menuData = {
-  vegStarters: [
-    { name: 'Crispy Corn', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Baby Corn 65', type: 'veg' as const, spice: 'spicy' as const },
-    { name: 'Baby Corn Manchurian', type: 'veg' as const, spice: 'medium' as const, badge: 'Most Ordered' as const },
-    { name: 'Chilli Baby Corn', type: 'veg' as const, spice: 'spicy' as const },
-    { name: 'Crispy Baby Corn', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Baby Corn Majestic', type: 'veg' as const, spice: 'medium' as const },
-    { name: 'Paneer 65', type: 'veg' as const, spice: 'spicy' as const, badge: 'Most Ordered' as const },
-    { name: 'Paneer Manchurian', type: 'veg' as const, spice: 'medium' as const },
-    { name: 'Chilli Paneer', type: 'veg' as const, spice: 'spicy' as const },
-    { name: 'Paneer Majestic', type: 'veg' as const, spice: 'medium' as const },
-    { name: 'Paneer 555', type: 'veg' as const, spice: 'spicy' as const },
-    { name: 'Kaju Paneer Dry', type: 'veg' as const, spice: 'medium' as const, badge: 'Chef Special' as const },
-    { name: 'Kaju Fry (100gm)', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Mushroom 65', type: 'veg' as const, spice: 'spicy' as const },
-    { name: 'Chilli Mushroom', type: 'veg' as const, spice: 'spicy' as const },
-    { name: 'Mushroom Manchurian', type: 'veg' as const, spice: 'medium' as const },
-  ],
-  nonVegStarters: [
-    { name: 'Egg 65', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Chilli Egg', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Egg Manchurian', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Garlic Chicken', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Chicken 65', type: 'nonveg' as const, spice: 'spicy' as const, badge: 'Most Ordered' as const },
-    { name: 'Chilli Chicken (Dry)', type: 'nonveg' as const, spice: 'spicy' as const, badge: 'Most Ordered' as const },
-    { name: 'Chicken Majestic', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Chicken Manchurian', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Pepper Chicken', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Chicken Lollipop', type: 'nonveg' as const, spice: 'medium' as const, badge: 'Most Ordered' as const },
-    { name: 'Dragon Chicken', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Chicken 555', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Kaju Chicken Dry', type: 'nonveg' as const, spice: 'medium' as const, badge: 'Chef Special' as const },
-    { name: 'Apollo Fish', type: 'nonveg' as const, spice: 'spicy' as const, badge: 'Chef Special' as const },
-    { name: 'Chilli Fish', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Garlic Fish', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Chilli Prawns', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Garlic Prawns', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Loose Prawns', type: 'nonveg' as const, spice: 'medium' as const },
+  beverages: [
+    { name: 'Charged Pet Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Fanta Glass Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Limca Glass Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Maaza Glass Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Maza Pet Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Pulpy Pet Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Rimzim Jeera Pet Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Soda Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Soda Mini Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Sprite Glass Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Sprite Pet Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Thumbs Up Glass Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Thumps Up Pet Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Water Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Water Mini Bottle', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Pet Thumbs Bottle 500ml', type: 'veg' as const, spice: 'mild' as const },
   ],
   biryani: [
-    { name: 'Egg Biryani', type: 'nonveg' as const, spice: 'mild' as const, portion: 'Single' as const },
-    { name: 'Chicken Dum Biryani Mini', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const },
+    { name: 'Chicken 65 Biryani', type: 'nonveg' as const, spice: 'spicy' as const, portion: 'Single' as const },
     { name: 'Chicken Dum Biryani', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const, badge: 'Most Ordered' as const },
     { name: 'Chicken Dum Biryani Family Pack', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Family' as const },
+    { name: 'Chicken Dum Biryani Mini', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const },
     { name: 'Chicken Fry Piece Biryani', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const },
     { name: 'Chicken Lollipop Biryani', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const },
-    { name: 'Chicken 65 Biryani', type: 'nonveg' as const, spice: 'spicy' as const, portion: 'Single' as const },
-    { name: 'S&S Special Chicken Biryani', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const, badge: 'Chef Special' as const },
+    { name: 'Egg Biryani', type: 'nonveg' as const, spice: 'mild' as const, portion: 'Single' as const },
+    { name: 'Mushroom Biryani', type: 'veg' as const, spice: 'medium' as const, portion: 'Single' as const },
+    { name: 'Paneer Biryani', type: 'veg' as const, spice: 'medium' as const, portion: 'Single' as const },
     { name: 'Prawns Biryani', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const },
+    { name: 'Prawns Family Pack', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Family' as const },
+    { name: 'S&S Special Chicken Biryani', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const, badge: 'Chef Special' as const },
+  ],
+  breadsAndNaans: [
+    { name: 'Phulka', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Rumali Roti', type: 'veg' as const, spice: 'mild' as const },
   ],
   chinese: [
-    { name: 'Veg Fried Rice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Special Veg Fried Rice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Boiled Egg Manchurian', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Chicken Fried Rice', type: 'nonveg' as const, spice: 'mild' as const, badge: 'Most Ordered' as const },
+    { name: 'Chicken Fried Rice (Normal Rice)', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Chicken Manchurian Chinese', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Chicken Noodles', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Double Egg Fried Rice (Normal Rice)', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Double Egg Noodles', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Egg Fried Rice', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Egg Fried Rice (Normal Rice)', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Egg Manchurian Fried Rice', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Egg Manchurian Fried Rice (Normal Rice)', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Egg Manchurian Noodles', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Egg Noodles', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Flash Man Noodles', type: 'nonveg' as const, spice: 'spicy' as const },
     { name: 'Jeera Rice', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Kaju Fried Rice', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Kaju Jeera Fried Rice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Egg Fried Rice', type: 'nonveg' as const, spice: 'mild' as const },
-    { name: 'Egg Manchurian Fried Rice', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Chicken Fried Rice', type: 'nonveg' as const, spice: 'mild' as const, badge: 'Most Ordered' as const },
     { name: 'Schezwan Chicken Fried Rice', type: 'nonveg' as const, spice: 'spicy' as const },
-    { name: 'Veg Noodles', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Egg Noodles', type: 'nonveg' as const, spice: 'mild' as const },
-    { name: 'Egg Manchurian Noodles', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Chicken Noodles', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Schezwan Chicken Fried Rice (Normal Rice)', type: 'nonveg' as const, spice: 'spicy' as const },
     { name: 'Schezwan Chicken Noodles', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Special Veg Fried Rice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Special Veg Fried Rice (Normal Rice)', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Veg Fried Rice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Veg Fried Rice (Normal Rice)', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Veg Manchurian', type: 'veg' as const, spice: 'medium' as const },
-    { name: 'Boiled Egg Manchurian', type: 'nonveg' as const, spice: 'medium' as const },
-    { name: 'Chicken Manchurian', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Veg Noodles', type: 'veg' as const, spice: 'mild' as const },
+  ],
+  combos: [
+    { name: 'Celebration Feast', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Family' as const },
+    { name: 'Sharing Feast', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Share' as const },
+    { name: 'Solo Feast', type: 'nonveg' as const, spice: 'medium' as const, portion: 'Single' as const },
+  ],
+  extra: [
+    { name: 'Boiled Egg', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Chicken Piece', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Curd Rice', type: 'veg' as const, spice: 'mild' as const },
+  ],
+  icecreams: [
+    { name: 'Arabian Fantasy Cone', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Butterscotch Premium Ice Cream 500ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'CHOCO Mocha', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Choco Bar', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Chocolate Premium Ice Cream 500ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Double Cone', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Jamun Ice Cream With Fruit 500ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Jamun Sorbet', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Jr. Butterscotch Cone', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Jr. CHOCO Cone', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Jr. Strawberry Cone', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Malai Kulfi', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Mango Ice Cream With Fruit 500ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Mango Sorbet', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Matka Kulfi', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Nutty Bar', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Pista Cone', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Red Velvet Cone', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Rose Kulfi', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Triple Bar', type: 'veg' as const, spice: 'mild' as const },
   ],
   juices: [
-    { name: 'Musk Melon Juice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Pineapple Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'ABC Juice (Apple + Beetroot + Carrot)', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Apple Juice', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Beetroot Juice', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Carrot + Beetroot Juice', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Carrot Juice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'ABC Juice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Pomegranate + Grape Juice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Sapota Juice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Apple Juice', type: 'veg' as const, spice: 'mild' as const },
-    { name: 'Pomegranate Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Grapes Juice', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Kiwi Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Musk Melon Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Orange Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Papaya Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Pineapple Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Pomegranate + Grape Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Pomegranate Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Sapota Juice', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Watermelon Juice', type: 'veg' as const, spice: 'mild' as const },
+  ],
+  mainCourse: [
+    { name: 'Boneless Chicken Curry', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Butter Chicken', type: 'nonveg' as const, spice: 'medium' as const, badge: 'Most Ordered' as const },
+    { name: 'Chicken Curry', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Egg Curry', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Egg Fry', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Egg Gravy Masala', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Kadai Chicken', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Kadai Paneer', type: 'veg' as const, spice: 'spicy' as const },
+    { name: 'Kaju Chicken Curry', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Kaju Paneer', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Mushroom Masala', type: 'veg' as const, spice: 'medium' as const },
+    { name: 'Palak Paneer', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Paneer Butter Masala', type: 'veg' as const, spice: 'mild' as const, badge: 'Most Ordered' as const },
+    { name: 'Paneer Methi Chaman', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Punjabi Chicken', type: 'nonveg' as const, spice: 'spicy' as const },
+  ],
+  nonVegStarters: [
+    { name: 'Apollo Fish', type: 'nonveg' as const, spice: 'spicy' as const, badge: 'Chef Special' as const },
+    { name: 'Chicken 555', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Chicken 65', type: 'nonveg' as const, spice: 'spicy' as const, badge: 'Most Ordered' as const },
+    { name: 'Chicken Lollipop', type: 'nonveg' as const, spice: 'medium' as const, badge: 'Most Ordered' as const },
+    { name: 'Chicken Majestic', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Chilli Chicken (Dry)', type: 'nonveg' as const, spice: 'spicy' as const, badge: 'Most Ordered' as const },
+    { name: 'Chilli Egg', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Chilli Fish', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Chilli Prawns', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Dragon Chicken', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Egg 65', type: 'nonveg' as const, spice: 'spicy' as const },
+    { name: 'Egg Manchurian', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Garlic Chicken', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Garlic Fish', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Garlic Prawns', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Kaju Chicken Dry', type: 'nonveg' as const, spice: 'medium' as const, badge: 'Chef Special' as const },
+    { name: 'Loose Prawns', type: 'nonveg' as const, spice: 'medium' as const },
+    { name: 'Pepper Chicken', type: 'nonveg' as const, spice: 'spicy' as const },
+  ],
+  vegStarters: [
+    { name: 'Baby Corn 65', type: 'veg' as const, spice: 'spicy' as const },
+    { name: 'Baby Corn Majestic', type: 'veg' as const, spice: 'medium' as const },
+    { name: 'Baby Corn Manchurian', type: 'veg' as const, spice: 'medium' as const, badge: 'Most Ordered' as const },
+    { name: 'Chilli Baby Corn', type: 'veg' as const, spice: 'spicy' as const },
+    { name: 'Chilli Mushroom', type: 'veg' as const, spice: 'spicy' as const },
+    { name: 'Chilli Paneer', type: 'veg' as const, spice: 'spicy' as const },
+    { name: 'Crispy Baby Corn', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Crispy Corn', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Kaju Fry (100Gm)', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Kaju Paneer Dry', type: 'veg' as const, spice: 'medium' as const, badge: 'Chef Special' as const },
+    { name: 'Mushroom 65', type: 'veg' as const, spice: 'spicy' as const },
+    { name: 'Mushroom Manchurian', type: 'veg' as const, spice: 'medium' as const },
+    { name: 'Paneer 555', type: 'veg' as const, spice: 'spicy' as const },
+    { name: 'Paneer 65', type: 'veg' as const, spice: 'spicy' as const, badge: 'Most Ordered' as const },
+    { name: 'Paneer Majestic', type: 'veg' as const, spice: 'medium' as const },
+    { name: 'Paneer Manchurian', type: 'veg' as const, spice: 'medium' as const },
   ],
 }
 
@@ -196,11 +282,17 @@ function MenuSection({ title, items, filterType, isOpen, onToggle }: {
 export default function MenuPage() {
   const [filterType, setFilterType] = useState<'all' | 'veg' | 'nonveg'>('all');
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-    vegStarters: false,
-    nonVegStarters: false,
+    beverages: false,
     biryani: false,
+    breadsAndNaans: false,
     chinese: false,
+    combos: false,
+    extra: false,
+    icecreams: false,
     juices: false,
+    mainCourse: false,
+    nonVegStarters: false,
+    vegStarters: false,
   });
 
   useEffect(() => {
@@ -295,18 +387,11 @@ export default function MenuPage() {
           </div>
 
           <MenuSection 
-            title="Veg Starters" 
-            items={menuData.vegStarters} 
+            title="Beverages" 
+            items={menuData.beverages} 
             filterType={filterType}
-            isOpen={openSections.vegStarters}
-            onToggle={() => toggleSection('vegStarters')}
-          />
-          <MenuSection 
-            title="Non-Veg Starters" 
-            items={menuData.nonVegStarters} 
-            filterType={filterType}
-            isOpen={openSections.nonVegStarters}
-            onToggle={() => toggleSection('nonVegStarters')}
+            isOpen={openSections.beverages}
+            onToggle={() => toggleSection('beverages')}
           />
           <MenuSection 
             title="Biryani" 
@@ -316,6 +401,13 @@ export default function MenuPage() {
             onToggle={() => toggleSection('biryani')}
           />
           <MenuSection 
+            title="Breads and Naans" 
+            items={menuData.breadsAndNaans} 
+            filterType={filterType}
+            isOpen={openSections.breadsAndNaans}
+            onToggle={() => toggleSection('breadsAndNaans')}
+          />
+          <MenuSection 
             title="Chinese" 
             items={menuData.chinese} 
             filterType={filterType}
@@ -323,11 +415,53 @@ export default function MenuPage() {
             onToggle={() => toggleSection('chinese')}
           />
           <MenuSection 
-            title="Juices & Beverages" 
+            title="Combos" 
+            items={menuData.combos} 
+            filterType={filterType}
+            isOpen={openSections.combos}
+            onToggle={() => toggleSection('combos')}
+          />
+          <MenuSection 
+            title="Extra" 
+            items={menuData.extra} 
+            filterType={filterType}
+            isOpen={openSections.extra}
+            onToggle={() => toggleSection('extra')}
+          />
+          <MenuSection 
+            title="Ice Creams" 
+            items={menuData.icecreams} 
+            filterType={filterType}
+            isOpen={openSections.icecreams}
+            onToggle={() => toggleSection('icecreams')}
+          />
+          <MenuSection 
+            title="Juices" 
             items={menuData.juices} 
             filterType={filterType}
             isOpen={openSections.juices}
             onToggle={() => toggleSection('juices')}
+          />
+          <MenuSection 
+            title="Main Course" 
+            items={menuData.mainCourse} 
+            filterType={filterType}
+            isOpen={openSections.mainCourse}
+            onToggle={() => toggleSection('mainCourse')}
+          />
+          <MenuSection 
+            title="Non-Veg Starters" 
+            items={menuData.nonVegStarters} 
+            filterType={filterType}
+            isOpen={openSections.nonVegStarters}
+            onToggle={() => toggleSection('nonVegStarters')}
+          />
+          <MenuSection 
+            title="Veg Starters" 
+            items={menuData.vegStarters} 
+            filterType={filterType}
+            isOpen={openSections.vegStarters}
+            onToggle={() => toggleSection('vegStarters')}
           />
         </motion.div>
       </div>
