@@ -32,6 +32,12 @@ const menuData = {
     { name: 'Water Bottle', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Water Mini Bottle', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Pet Thumbs Bottle 500ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Thums Up 250ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Sprite 250ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Maaza 250ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Soda 300ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Soda 500ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Water Bottle 500ml', type: 'veg' as const, spice: 'mild' as const },
   ],
   biryani: [
     { name: 'Chicken 65 Biryani', type: 'nonveg' as const, spice: 'spicy' as const, portion: 'Single' as const },
