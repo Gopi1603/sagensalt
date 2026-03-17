@@ -12,6 +12,8 @@ import Reviews from '@/components/Reviews'
 import Location from '@/components/Location'
 import InstagramFeed from '@/components/InstagramFeed'
 import FestivalTheme from '@/components/FestivalTheme'
+import PlatformStats from '@/components/PlatformStats'
+import CustomerLove from '@/components/CustomerLove'
 import { generatePageMetadata, generateRestaurantSchema } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
@@ -34,6 +36,7 @@ export default function Home() {
       />
       <FestivalTheme />
       <Hero />
+      <PlatformStats />
       <MenuCategories />
       <DigitalNomad />
       <WelcomeSection />
@@ -41,6 +44,7 @@ export default function Home() {
       <SignatureDishes />
       <MenuHighlights />
       <Gallery />
+      <CustomerLove />
       <Reviews />
       <InstagramFeed />
       <Location />
