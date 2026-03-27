@@ -16,6 +16,12 @@ interface MenuItem {
 
 const menuData = {
   beverages: [
+    { name: 'Thums Up 250ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Sprite 250ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Maaza 250ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Soda 300ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Soda 500ml', type: 'veg' as const, spice: 'mild' as const },
+    { name: 'Water Bottle 500ml', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Charged Pet Bottle', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Fanta Glass Bottle', type: 'veg' as const, spice: 'mild' as const },
     { name: 'Limca Glass Bottle', type: 'veg' as const, spice: 'mild' as const },
@@ -63,6 +69,7 @@ const menuData = {
     { name: 'Chicken Fried Rice (Normal Rice)', type: 'nonveg' as const, spice: 'mild' as const },
     { name: 'Chicken Manchurian Chinese', type: 'nonveg' as const, spice: 'medium' as const },
     { name: 'Chicken Noodles', type: 'nonveg' as const, spice: 'mild' as const },
+    { name: 'Double Egg Fried Rice', type: 'nonveg' as const, spice: 'mild' as const },
     { name: 'Double Egg Fried Rice (Normal Rice)', type: 'nonveg' as const, spice: 'mild' as const },
     { name: 'Double Egg Noodles', type: 'nonveg' as const, spice: 'mild' as const },
     { name: 'Egg Fried Rice', type: 'nonveg' as const, spice: 'mild' as const },
