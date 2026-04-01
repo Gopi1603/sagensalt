@@ -46,7 +46,7 @@ export default function CateringPage() {
           <div className="gold-divider max-w-xs mx-auto mb-8"></div>
 
           <div className="max-w-2xl mx-auto text-center mb-12">
-            <p className="text-lg text-text-light/80">
+            <p className="text-lg text-black">
               Same quality, larger quantities. We prepare everything fresh for your event - just tell us how many people and when.
             </p>
           </div>
@@ -79,7 +79,7 @@ export default function CateringPage() {
                       <h2 className="text-2xl md:text-3xl font-heading text-accent mb-3">
                         {service.title}
                       </h2>
-                      <p className="text-text-light/80 mb-4">{service.description}</p>
+                      <p className="text-black mb-4">{service.description}</p>
                       <div className="flex flex-wrap gap-2 mb-3">
                         {service.quantities.map((qty, i) => (
                           <span
@@ -90,7 +90,7 @@ export default function CateringPage() {
                           </span>
                         ))}
                       </div>
-                      <p className="text-sm text-text-light/60 italic">{service.note}</p>
+                      <p className="text-sm text-black/80 italic">{service.note}</p>
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ export default function CateringPage() {
           {/* What We Provide */}
           <div className="bg-accent/10 border border-accent/30 rounded-lg p-8 mb-12">
             <h3 className="text-2xl font-heading text-accent mb-4 text-center">What's Included</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-text-light/80">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-black">
               <li className="flex items-center space-x-2">
                 <span className="text-accent">•</span>
                 <span>Fresh preparation on order day</span>
@@ -124,7 +124,7 @@ export default function CateringPage() {
           {/* CTA Section */}
           <div className="bg-primary border border-accent/20 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-heading text-accent mb-4">Get a Quote</h3>
-            <p className="text-text-light/80 mb-6">
+            <p className="text-black mb-6">
               Tell us your event details, number of people, and preferred date. We'll work out the rest.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -143,7 +143,7 @@ export default function CateringPage() {
                 WhatsApp Us
               </a>
             </div>
-            <p className="text-sm text-text-light/60 mt-4">Typically respond within 2 hours</p>
+            <p className="text-sm text-black/80 mt-4">Typically respond within 2 hours</p>
           </div>
         </motion.div>
       </div>
